@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>nick:</b>
+  <%= @result.nick %>
+</p>
+
+<p>
+  <b>IP address:</b>
+  <%= @result.ip_address %>
+</p>
+<ul>
+  <%@result.candidates.each do |candidate| %>
+    <li><%=candidate.name+" "+candidate.surname %></li>
+  <%end%>
+</ul>
+<%= link_to 'Back', results_path %>

@@ -1,0 +1,9 @@
+<% flash.each do |type, message| %>
+    <table id="<%= type %>">
+      <tr>
+        <th><%= message%></th>
+      </tr>
+    </table>
+<% end %>
+
+<%= render 'form' %>

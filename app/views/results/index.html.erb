@@ -1,0 +1,22 @@
+<h1>Results</h1>
+
+<table>
+  <tr>
+    <th>Candidate</th>
+    <th>Quantity</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @candidates.each do |candidate| %>
+  <tr>
+    <td><%= candidate.name + " " + candidate.surname %></td>
+    <td><%= candidate.results.count %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Result', new_result_path %>

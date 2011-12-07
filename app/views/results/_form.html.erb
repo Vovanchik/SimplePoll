@@ -1,0 +1,25 @@
+<%= form_for(@result) do |f| %>
+  <% if @result.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@result.errors.count, "error") %> prohibited this result from being saved:</h2>
+
+      <ul>
+      <% @result.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<h1>Виберіть 5 кандидатів</h1>
+
+  <%@candidates.each do |candidate|%>
+    <div class="field">
+        <%= check_box_tag 'candidates_ids[]', candidate.id, false,:id=>nil %>
+        <%= f.label candidate.name + " " + candidate.surname %>
+    </div>
+  <%end%>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
