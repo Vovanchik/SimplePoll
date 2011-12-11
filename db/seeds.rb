@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+role_super_user = Role.create(:name => 'super_user', :description => 'This is super user')
+
+admin_user = User.create(:id =>1,
+            :nick=> 'webmaster',
+            :password => '01Ericpol!',
+            :password_confirmation => '01Ericpol!',
+            :email => 'vovanchik@gmail.com',
+            :role => role_super_user)

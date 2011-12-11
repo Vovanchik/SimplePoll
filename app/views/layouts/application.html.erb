@@ -8,7 +8,50 @@
 </head>
 <body>
 
+<div id="page_wrapper">
+
+<div id="page_header">
+    <h1>Голосування за кандидатів в раду працівників</h1>
+    <h2></h2>
+</div>
+
+<div id="content_wrapper">
+
+<% flash.each do |type, message| %>
+  <table id="<%= type %>">
+    <tr>
+      <th><%= message%></th>
+    </tr>
+  </table>
+<% end %>
+
+<div id="left_side">
+
+<h3>Статус голосування</h3>
+<p>
+  На <%=Time.now.strftime("%d.%m.%Y %H:%M")%> проголосувало <b><%=@results.count%></b> учасників.
+  <br/><b>Увага:</b> Голосування закінчить в <b>середу 14.12.2011 о 17:45</b>
+</p>
+
 <%= yield %>
 
+</div>
+
+<div id="right_side">
+  <h3>Інструкція</h3>
+  <p>
+    Виберіть будь-ласка 5 кандидаті із списку і натисніть "Vote"
+  </p>
+
+</div>
+
+</div>
+
+<div id="page_footer">
+
+<p>&copy; 2011 Volodymyr Koval, All Rights Reserved.<br />
+
+</div>
+</div>
 </body>
 </html>

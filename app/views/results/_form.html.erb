@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-<h1>Виберіть 5 кандидатів</h1>
+<h3>Список кандидатів</h3>
 
   <%@candidates.each do |candidate|%>
     <div class="field">
@@ -20,6 +20,6 @@
     </div>
   <%end%>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Vote" %>
   </div>
 <% end %>

@@ -44,8 +44,7 @@ ActiveRecord::Schema.define(:version => 20111202075851) do
     t.string   "crypted_password",  :null => false
     t.string   "password_salt",     :null => false
     t.string   "persistence_token", :null => false
-    t.integer  "users"
-    t.integer  "role_id"
+    t.integer  "role_id",           :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -3,6 +3,7 @@ SimplePoll::Application.routes.draw do
 
   match 'login' => 'user_sessions#new',       :as => :login
   match 'logout' => 'user_sessions#destroy',  :as => :logout
+  match 'main' => 'candidates#index',  :as => :main
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

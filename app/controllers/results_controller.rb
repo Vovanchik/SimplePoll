@@ -1,4 +1,5 @@
 class ResultsController < ApplicationController
+  load_and_authorize_resource
   before_filter :get_candidates
 
   # GET /results
@@ -12,31 +13,23 @@ class ResultsController < ApplicationController
     end
   end
 
-  # GET /results/1
-  # GET /results/1.xml
-  def show
-    @result = Result.find(params[:id])
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @result }
-    end
-  end
-
   # GET /results/new
   # GET /results/new.xml
   def new
     @result = Result.new
 
     respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @result }
+      unless cookies[:vote] == 'sent' then
+        format.html # new.html.erb
+        format.xml  { render :xml => @result }
+      else
+        format.html {
+          flash[:alert] = "Sorry, but you already sent your vote"
+          redirect_to (results_path)
+        }
+      end
     end
   end
-
-  # GET /results/1/edit
-  #def edit
-  #  @result = Result.find(params[:id])
-  #end
 
   # POST /results
   # POST /results.xml
@@ -51,49 +44,21 @@ class ResultsController < ApplicationController
 
     puts params[:candidates_ids].count.eql?(NUMBER_OF_CANDIDATES)
 
-    respond_to do |format|
+    respond_to { |format|
       if params[:candidates_ids].count.eql?(NUMBER_OF_CANDIDATES)
         if @result.save
-          format.html { redirect_to(@result, :notice => 'Result was successfully created.') }
-          format.xml  { render :xml => @result, :status => :created, :location => @result }
+          format.html { redirect_to(results_path, :notice => "Thanks for your vote") }
+          format.xml { render :xml => @result, :status => :created, :location => @result }
+          cookies[:vote] = {:value => 'sent', :expires => 3.days.from_now}
         else
           format.html { render :action => "new" }
-          format.xml  { render :xml => @result.errors, :status => :unprocessable_entity }
+          format.xml { render :xml => @result.errors, :status => :unprocessable_entity }
         end
       else
         format.html {
           flash[:alert] = "You should choose " + NUMBER_OF_CANDIDATES.to_s + " candidates"
-          render :edit
+          redirect_to (new_result_path)
         }
-      end
-    end
-  end
-
-  # PUT /results/1
-  # PUT /results/1.xml
-  def update
-    @result = Result.find(params[:id])
-
-    respond_to do |format|
-      if @result.update_attributes(params[:result])
-        format.html { redirect_to(@result, :notice => 'Result was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @result.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /results/1
-  # DELETE /results/1.xml
-  def destroy
-    @result = Result.find(params[:id])
-    @result.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(results_url) }
-      format.xml  { head :ok }
-    end
+      end }
   end
 end

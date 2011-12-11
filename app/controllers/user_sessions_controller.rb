@@ -1,5 +1,5 @@
 class UserSessionsController < ApplicationController
-
+  skip_authorization_check
   # GET /user_sessions/new
   # GET /user_sessions/new.xml
   def new
@@ -18,7 +18,7 @@ class UserSessionsController < ApplicationController
 
     respond_to do |format|
       if @user_session.save
-        format.html { redirect_to root}
+        format.html { redirect_to main_url}
         format.xml  { render :xml => @user_session, :status => :created, :location => @user_session }
       else
         format.html { render :action => "new" }

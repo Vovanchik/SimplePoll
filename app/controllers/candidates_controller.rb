@@ -1,4 +1,5 @@
 class CandidatesController < ApplicationController
+  load_and_authorize_resource
   # GET /candidates
   # GET /candidates.xml
   def index

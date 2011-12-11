@@ -6,7 +6,7 @@ class AddUsersAndRoles < ActiveRecord::Migration
       t.string :crypted_password, :null => false
       t.string :password_salt, :null => false
       t.string :persistence_token, :null => false
-      t.integer :users, :role_id
+      t.integer :role_id, :null => false
 
       t.timestamps
     end

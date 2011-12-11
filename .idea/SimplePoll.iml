@@ -26,16 +26,16 @@
     <orderEntry type="library" scope="PROVIDED" name="actionmailer (v3.0.9, ruby-1.9.2-p136) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="authlogic (v3.0.3, ruby-1.9.2-p136) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-test (v0.5.7, ruby-1.9.2-p136) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="polyglot (v0.3.1, ruby-1.9.2-p136) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubis (v2.6.6, ruby-1.9.2-p136) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="treetop (v1.4.9, ruby-1.9.2-p136) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="polyglot (v0.3.1, ruby-1.9.2-p136) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v0.14.6, ruby-1.9.2-p136) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activerecord (v3.0.9, ruby-1.9.2-p136) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rdoc (v3.6.1, ruby-1.9.2-p136) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.2.19, ruby-1.9.2-p136) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="cancan (v1.6.5, ruby-1.9.2-p136) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rack (v1.2.3, ruby-1.9.2-p136) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v0.3.28, ruby-1.9.2-p136) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack (v1.2.3, ruby-1.9.2-p136) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionpack (v3.0.9, ruby-1.9.2-p136) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v0.9.2, ruby-1.9.2-p136) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mime-types (v1.16, ruby-1.9.2-p136) [gem]" level="application" />
