@@ -68,3 +68,31 @@ div.field, div.actions {
   font-size: 12px;
   list-style: square;
 }
+
+table.results {
+    text-align: left;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100% ;
+    font-family: verdana,arial,sans-serif;
+    font-size: 11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+
+table.results th {
+    text-align: left;
+	border-width: 1px;
+	padding: 2px;
+	border-style: solid;
+	border-color: #666666;
+}
+table.results td {
+	border-width: 1px;
+	padding: 2px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
