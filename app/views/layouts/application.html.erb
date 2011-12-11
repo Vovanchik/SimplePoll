@@ -42,6 +42,19 @@
   <p>
     Виберіть будь-ласка 5 кандидаті із списку і натисніть "Vote"
   </p>
+  <h3>Голосування</h3>
+  <p>
+    <%=link_to 'Показати результати...', results_path %>
+  </p>
+  <p>
+    <%=link_to 'Проголосувати...', new_result_path %>
+  </p>
+
+  <%if @current_user%>
+      <p>
+        <%=link_to 'Logout...', logout_path %>
+      </p>
+   <%end%>
 
 </div>
 

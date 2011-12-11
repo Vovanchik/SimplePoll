@@ -1,19 +1,35 @@
 <h3>Результати голосування</h3>
 
-<table>
-  <tr>
-    <th>Кандидат</th>
-    <th>Кількість голосів</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<table BORDER=1>
+  <%unless @current_user%>
+      <tr>
+        <th>Кандидат</th>
+        <th>Кількість голосів</th>
+      </tr>
+      <% @candidates.each do |candidate| %>
+        <tr>
+          <td><%= candidate.name + " " + candidate.surname %></td>
+          <td><%= candidate.results.count %></td>
+        </tr>
+      <% end %>
+  <%end%>
 
-<% @candidates.each do |candidate| %>
-  <tr>
-    <td><%= candidate.name + " " + candidate.surname %></td>
-    <td><%= candidate.results.count %></td>
-  </tr>
-<% end %>
+  <%if @current_user%>
+    <% @results.each do |result| %>
+      <tr>
+        <th rowspan= <%=result.candidates.count+1%> > <%= result.id%></th>
+
+        <%result.candidates.each do |candidate| %>
+            <tr>
+              <td><%= candidate.name + " " + candidate.surname %></td>
+              <td><%=result.ip_address%></td>
+              <td><%=result.created_at.strftime("%d.%m.%Y %H:%M")%> </td>
+            </tr>
+        <%end%>
+
+      </tr>
+    <% end %>
+  <%end%>
+
 </table>
 <br/>

@@ -38,14 +38,13 @@ class ResultsController < ApplicationController
 
     @result.ip_address = request.remote_ip
 
-    params[:candidates_ids].each do |candidate_id|
+
+    params[:candidates_ids].each unless params[:candidates_ids].nil? do |candidate_id|
       @result.candidates << Candidate.find(candidate_id) if params[:candidates_ids].count.eql?(NUMBER_OF_CANDIDATES)
     end
 
-    puts params[:candidates_ids].count.eql?(NUMBER_OF_CANDIDATES)
-
     respond_to { |format|
-      if params[:candidates_ids].count.eql?(NUMBER_OF_CANDIDATES)
+      if params[:candidates_ids].nil? ? false : params[:candidates_ids].count.eql?(NUMBER_OF_CANDIDATES)
         if @result.save
           format.html { redirect_to(results_path, :notice => "Thanks for your vote") }
           format.xml { render :xml => @result, :status => :created, :location => @result }
