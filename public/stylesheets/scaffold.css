@@ -87,12 +87,13 @@ table.results th {
 	border-width: 1px;
 	padding: 2px;
 	border-style: solid;
-	border-color: #666666;
+	border-color: #018843;
+    background-color: #F4FDE5;
 }
 table.results td {
 	border-width: 1px;
 	padding: 2px;
 	border-style: solid;
-	border-color: #666666;
+	border-color: #018843;
 	background-color: #ffffff;
 }
