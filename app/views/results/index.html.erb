@@ -8,8 +8,8 @@
       </tr>
       <% @candidates.each do |candidate| %>
         <tr>
-          <td><%= candidate.name + " " + candidate.surname %></td>
-          <td><%= candidate.results.count %></td>
+          <td><%=candidate.name + " " + candidate.surname %></td>
+          <td><%=candidate.results.count %></td>
         </tr>
       <% end %>
   <%end%>
@@ -21,7 +21,7 @@
 
         <%result.candidates.each do |candidate| %>
             <tr>
-              <td><%= candidate.name + " " + candidate.surname %></td>
+              <td><%=candidate.name + " " + candidate.surname %></td>
               <td><%=result.ip_address%></td>
               <td><%=result.created_at.strftime("%d.%m.%Y %H:%M")%> </td>
             </tr>

@@ -38,9 +38,12 @@ class ResultsController < ApplicationController
 
     @result.ip_address = request.remote_ip
 
-
-    params[:candidates_ids].each unless params[:candidates_ids].nil? do |candidate_id|
-      @result.candidates << Candidate.find(candidate_id) if params[:candidates_ids].count.eql?(NUMBER_OF_CANDIDATES)
+    unless params[:candidates_ids].nil?
+      if params[:candidates_ids].count.eql?(NUMBER_OF_CANDIDATES)
+        params[:candidates_ids].each do |candidate_id|
+          @result.candidates << Candidate.find(candidate_id)
+        end
+      end
     end
 
     respond_to { |format|
