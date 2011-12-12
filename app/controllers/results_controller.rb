@@ -63,4 +63,16 @@ class ResultsController < ApplicationController
         }
       end }
   end
+
+  # DELETE /results/1
+  # DELETE /results/1.xml
+  def destroy
+    @result = Result.find(params[:id])
+    @result.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(results_url) }
+      format.xml  { head :ok }
+    end
+  end
 end
